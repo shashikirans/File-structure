@@ -27,7 +27,11 @@ GEM
       tzinfo (~> 0.3.37)
     acts_as_tree (2.1.0)
       activerecord (>= 3.0.0)
+    ancestry (2.1.0)
+      activerecord (>= 3.0.0)
     arel (4.0.2)
+    awesome_nested_set (3.0.1)
+      activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.7)
     builder (3.1.4)
     carrierwave (0.10.0)
@@ -54,6 +58,15 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
+    haml (4.0.5)
+      tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (1.5.3)
@@ -62,13 +75,22 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.2)
+      railties (>= 3.2.16)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (4.7.5)
     multi_json (1.10.1)
+    nested_form (0.3.2)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -78,6 +100,9 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.4)
@@ -88,6 +113,27 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.4)
       sprockets-rails (~> 2.0.0)
+    rails_admin (0.6.5)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (~> 3.0)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (~> 4.0)
+    rails_admin_nestable (0.2.0)
+      coffee-rails
+      haml-rails
+      rails (>= 3.1)
+      rails_admin
+      sass-rails
+    rails_admin_nested_set (0.3.6)
     railties (4.0.4)
       actionpack (= 4.0.4)
       activesupport (= 4.0.4)
@@ -96,6 +142,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    remotipart (1.2.1)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -114,6 +162,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    the_sortable_tree (2.5.0)
+      rails (>= 3.1)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -134,6 +184,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
+  ancestry
+  awesome_nested_set
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
@@ -142,7 +194,11 @@ DEPENDENCIES
   paperclip
   pg
   rails (= 4.0.4)
+  rails_admin
+  rails_admin_nestable
+  rails_admin_nested_set
   sass-rails (~> 4.0.2)
   sdoc
+  the_sortable_tree (~> 2.5.0)
   turbolinks
   uglifier (>= 1.3.0)

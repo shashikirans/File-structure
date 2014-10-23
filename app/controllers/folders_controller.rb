@@ -2,11 +2,13 @@ class FoldersController < ApplicationController
   before_filter :authenticate_user!
 
   before_action :set_folder, only: [:show, :update, :destroy]
-
+  include TheSortableTreeController::Rebuild
+  include TheSortableTreeController::ExpandNode
   # GET /folders
   # GET /folders.json
   def index
-    @folders = current_user.folders
+    @folders = current_user.folders.nested_set.all
+    #@pages = Page.nested_set.select('id, title, content, parent_id').all
   end
   
   def show
@@ -86,6 +88,6 @@ class FoldersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def folder_params
-      params.require(:folder).permit(:name, :parent_id, :user_id)
+      params.require(:folder).permit(:name, :parent_id, :user_id,:title,:lft,:rgt,:secert_field,:depth)
     end
   end

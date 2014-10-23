@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021092725) do
+ActiveRecord::Schema.define(version: 20141023110744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20141021092725) do
     t.integer  "uploaded_file_file_size"
     t.datetime "uploaded_file_updated_at"
     t.integer  "folder_id"
+    t.string   "title"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.integer  "secret_field"
+    t.integer  "parent_id"
   end
 
   add_index "assets", ["folder_id"], name: "index_assets_on_folder_id", using: :btree
@@ -35,6 +41,13 @@ ActiveRecord::Schema.define(version: 20141021092725) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ancestry"
+    t.string   "position"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.integer  "secret_field"
+    t.string   "title"
   end
 
   add_index "folders", ["parent_id"], name: "index_folders_on_parent_id", using: :btree

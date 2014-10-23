@@ -14,7 +14,10 @@ validates_attachment_size :uploaded_file, :less_than => 10.megabytes
 validates_attachment_presence :uploaded_file
 
 
+   acts_as_nested_set
+  include TheSortableTree::Scopes
 
+  
 def file_name
     uploaded_file_file_name
 end

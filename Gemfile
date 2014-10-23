@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg' 
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -24,9 +24,17 @@ gem "paperclip"
 gem 'rails_admin'
 
 gem 'rails_admin_nestable'
+gem 'rails_admin_nested_set'
 
+gem 'ancestry'
 #For nested folders
 gem "acts_as_tree"
+
+
+#another work around
+gem 'awesome_nested_set' # or any similar gem (gem 'nested_set')
+gem "the_sortable_tree", "~> 2.5.0"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

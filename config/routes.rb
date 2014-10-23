@@ -1,10 +1,28 @@
 Sharebox::Application.routes.draw do
-  resources :folders
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+   resources :folders do
+    collection do
+       get :manage
+
+      # required for Sortable GUI server side actions
+      post :rebuild
+
+    end
+  end
+
 
   resources :welcomes
 
-  resources :assets
+  resources :assets do
+     collection do
+         get :manage
 
+        # required for Sortable GUI server side actions
+        post :rebuild
+
+      end
+  end
+  
   resources :ideas
 
   root :to => "welcomes#index"

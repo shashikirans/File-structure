@@ -5,14 +5,15 @@ class WelcomesController < ApplicationController
   # GET /welcomes.json
   def index
     if user_signed_in?
-      
-  #show only root folders (which have no parent folders)
-  @folders = current_user.folders.roots 
-  
-     #show only root files which has no "folder_id"
-     @assets = current_user.assets.where("folder_id is NULL").order("uploaded_file_file_name desc")    
-   end
- end
+      @folders = current_user.folders.nested_set.all
+      @assets = current_user.assets.nested_set.all
+    end
+
+
+    #show only root folders (which have no parent folders)
+      #show only root files which has no "folder_id"
+     # @assets = current_user.assets.where("folder_id is NULL").order("uploaded_file_file_name desc")       
+  end
 
 
 
